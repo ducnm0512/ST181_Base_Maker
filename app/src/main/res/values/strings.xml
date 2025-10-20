@@ -64,7 +64,7 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="wait_a_few_second">Wait a minute</string>
-    <string name="download_success">Download Success To Girl Maker Album</string>
+    <string name="download_success">Download Success To Halloween Maker Album</string>
     <string name="do_you_want_to_reset">Change your whole design, \nare you sure?</string>
     <string name="my_album">My Album</string>
     <string name="do_you_want_to_exit">Haven’t saved it yet, do you \nwant to exit?</string>
@@ -89,4 +89,5 @@
     <string name="creation">Creation</string>
     <string name="add_to_telegram">Add to TeleGram</string>
     <string name="add_to_whatsapp">Add to Whatsapp</string>
+    <string name="error_whatsapp">WhatsApp is not installed</string>
 </resources>

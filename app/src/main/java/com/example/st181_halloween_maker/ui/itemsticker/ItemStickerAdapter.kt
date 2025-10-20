@@ -21,7 +21,7 @@ class ItemStickerAdapter(val context: Context): RecyclerView.Adapter<ItemSticker
 
     inner class ListStickerViewHolder(private val binding : ItemStickerBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(path:String, position: Int){
-                Glide.with(binding.root).load(path).placeholder(shimmerDrawable).error(shimmerDrawable).into(binding.imvImage)
+                Glide.with(binding.root).load("file:///android_asset/$path").placeholder(shimmerDrawable).error(shimmerDrawable).into(binding.imvImage)
 
             binding.root.onSingleClick {
                 onItemClick?.invoke(path,position)

@@ -15,4 +15,7 @@
     <files-path
         name="files"
         path="." />
+    <cache-path
+        name="images"
+        path="images/" />
 </paths>

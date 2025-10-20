@@ -30,6 +30,7 @@ class ListStickerActivity : BaseActivity<ActivityListStickerBinding>() {
     private val stickerAdapter by lazy {
         ListStickerAdapter(this)
     }
+
     override fun setViewBinding(): ActivityListStickerBinding {
         return ActivityListStickerBinding.inflate(LayoutInflater.from(this))
     }
@@ -44,6 +45,7 @@ class ListStickerActivity : BaseActivity<ActivityListStickerBinding>() {
             btnBack.onSingleClick {
                 handleBack()
             }
+
         }
         handleRcv()
     }
@@ -51,12 +53,14 @@ class ListStickerActivity : BaseActivity<ActivityListStickerBinding>() {
     override fun initText() {
 
     }
+
     private fun initData() {
         binding.apply {
             avatarStickerList.clear()
             avatarStickerList.addAll(getAvatarStickerAsset(this@ListStickerActivity))
         }
     }
+
     private fun initRcv() {
         binding.apply {
             rcv.adapter = stickerAdapter
@@ -65,12 +69,13 @@ class ListStickerActivity : BaseActivity<ActivityListStickerBinding>() {
             Log.d("Sticker", "${avatarStickerList.size}")
         }
     }
-    private fun handleRcv(){
+
+    private fun handleRcv() {
         binding.apply {
-            stickerAdapter.onItemClick = { path,position ->
+            stickerAdapter.onItemClick = { path, position ->
                 val stickerFolder = "sticker/${position + 1}"
                 val intent = Intent(this@ListStickerActivity, ItemStickerActivity::class.java)
-                intent.putExtra(HALLOWEEN_KEY,stickerFolder)
+                intent.putExtra(HALLOWEEN_KEY, stickerFolder)
                 startActivity(intent)
             }
         }

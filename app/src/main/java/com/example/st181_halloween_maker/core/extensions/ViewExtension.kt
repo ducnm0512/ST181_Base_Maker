@@ -180,6 +180,25 @@ fun Activity.eLog(content: String) {
 }
 
 
+internal fun shareImageToTelegram(context: Context, imageUris: List<Uri>) {
+    val telegramPackage = "org.telegram.messenger" // Telegram chính thức
+    val intent = Intent(Intent.ACTION_SEND_MULTIPLE).apply {
+        type = "image/*"
+        putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(imageUris))
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        setPackage(telegramPackage)
+    }
+
+    // Kiểm tra xem Telegram có được cài không
+    if (intent.resolveActivity(context.packageManager) != null) {
+        context.startActivity(intent)
+    } else {
+        Toast.makeText(context, "Telegram chưa được cài đặt", Toast.LENGTH_SHORT).show()
+    }
+}
+
+
+
 fun Activity.handleShare(context: Activity, bit: Bitmap) {
     val loading = LoadingDialog(context)
     setLocale(context)
